@@ -51,7 +51,7 @@ namespace LevelManagement
         {
             if (menuInstance == null)
             {
-                Debug.LogWarning("MENUMANAGER OpenMenu ERROR: invalid menu");
+                Debug.Log("MENUMANAGER OpenMenu ERROR: invalid menu");
                 return;
             }
 
