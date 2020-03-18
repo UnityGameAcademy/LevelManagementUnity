@@ -80,6 +80,7 @@ namespace SampleGame
             }
         }
 
+
         private void LoadLevel(int levelIndex)
         {
             if (levelIndex >= 0 && levelIndex < SceneManager.sceneCountInBuildSettings)
