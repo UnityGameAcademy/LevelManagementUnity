@@ -72,12 +72,26 @@ namespace SampleGame
 
         private void LoadLevel(string levelName)
         {
-            SceneManager.LoadScene(levelName);
+            if (Application.CanStreamedLevelBeLoaded(levelName))
+            {
+                SceneManager.LoadScene(levelName);
+            }
+            else
+            {
+                Debug.LogWarning("GAMEMANAGER LoadLevel Error: invalid scene specified!");
+            }
         }
 
         private void LoadLevel(int levelIndex)
         {
-            SceneManager.LoadScene(levelIndex);
+            if (levelIndex >= 0 && levelIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(levelIndex);
+            }
+            else
+            {
+                Debug.LogWarning("GAMEMANAGER LoadLevel Error: invalid scene specified!");
+            }
         }
 
         private void ReloadLevel()
@@ -89,9 +103,7 @@ namespace SampleGame
         {
             //Scene currentScene = SceneManager.GetActiveScene();
             //int currentSceneIndex = currentScene.buildIndex;
-
             //int nextSceneIndex = currentSceneIndex + 1;
-
             //int totalSceneCount = SceneManager.sceneCountInBuildSettings;
             //nextSceneIndex = nextSceneIndex % totalSceneCount;
 
