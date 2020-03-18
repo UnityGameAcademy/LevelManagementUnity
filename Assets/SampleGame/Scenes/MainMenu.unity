@@ -168,7 +168,7 @@ MonoBehaviour:
     type: 3}
   settingsMenuPrefab: {fileID: 114418866506503062, guid: fc0352cbc91cb440dad5ed247f129543,
     type: 3}
-  creditsScreenPrefab: {fileID: 114987338053501180, guid: 80e52d4813f764ed39a1f210378ba9a9,
+  creditsScreenPrefab: {fileID: 114072329627430558, guid: 80e52d4813f764ed39a1f210378ba9a9,
     type: 3}
   _menuParent: {fileID: 0}
 --- !u!1 &336144224
