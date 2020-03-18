@@ -21,7 +21,7 @@ namespace SampleGame
         public bool IsGameOver { get { return _isGameOver; } }
 
         [SerializeField]
-        private string nextLevelName;
+        private string nextLevelName = "Level1";
 
         [SerializeField]
         private int nextLevelIndex;
@@ -64,9 +64,7 @@ namespace SampleGame
             {
                 _isGameOver = true;
                 _goalEffect.PlayEffect();
-
                 LoadNextLevel();
-
             }
         }
 
@@ -90,13 +88,13 @@ namespace SampleGame
             }
             else
             {
-                Debug.LogWarning("GAMEMANAGER LoadLevel Error: invalid scene specified!");
+                Debug.LogWarning("GAMEMANAGER LoadLevel Error: invalid scene specified!"); 
             }
         }
 
         private void ReloadLevel()
         {
-            LoadLevel(SceneManager.GetActiveScene().buildIndex);
+            LoadLevel(SceneManager.GetActiveScene().name);
         }
 
         private void LoadNextLevel()
@@ -105,14 +103,13 @@ namespace SampleGame
             //int currentSceneIndex = currentScene.buildIndex;
             //int nextSceneIndex = currentSceneIndex + 1;
             //int totalSceneCount = SceneManager.sceneCountInBuildSettings;
-            //nextSceneIndex = nextSceneIndex % totalSceneCount;
+            //nextSceneIndex = nextLevelIndex % totalSceneCount;
 
-            int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) %
-                SceneManager.sceneCountInBuildSettings;
-
+            int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) 
+                % SceneManager.sceneCountInBuildSettings;
             LoadLevel(nextSceneIndex);
-
         }
+
         // check for the end game condition on each frame
         private void Update()
         {
