@@ -10,40 +10,37 @@ namespace LevelManagement
     {
         public void OnPlayPressed()
         {
-            GameManager gameManager = Object.FindObjectOfType<GameManager>();
 
-            if (gameManager != null)
+            if (GameManager.Instance != null)
             {
-                gameManager.LoadNextLevel();
+                GameManager.Instance.LoadNextLevel();
             }
         }
 
         public void OnSettingsPressed()
         {
-            MenuManager menuManager = Object.FindObjectOfType<MenuManager>();
             Menu settingsMenu = transform.parent.Find("SettingsMenu(Clone)").GetComponent<Menu>();
-            if (menuManager != null && settingsMenu != null)
+            if (MenuManager.Instance != null && settingsMenu != null)
             {
-                menuManager.OpenMenu(settingsMenu);
+                MenuManager.Instance.OpenMenu(settingsMenu);
             }
         }
 
         public void OnCreditsPressed()
         {
-            MenuManager menuManager = Object.FindObjectOfType<MenuManager>();
+         
             Menu creditsScreen = transform.parent.Find("CreditsScreen(Clone)").GetComponent<Menu>();
-            if (menuManager != null && creditsScreen != null)
+            if (MenuManager.Instance != null && creditsScreen != null)
             {
-                menuManager.OpenMenu(creditsScreen);
+                MenuManager.Instance.OpenMenu(creditsScreen);
             }
         }
 
         public void OnBackPressed()
         {
-            MenuManager menuManager = Object.FindObjectOfType<MenuManager>();
-            if (menuManager != null)
+            if (MenuManager.Instance != null)
             {
-                menuManager.CloseMenu();
+                MenuManager.Instance.CloseMenu();
             }
         }
     }
