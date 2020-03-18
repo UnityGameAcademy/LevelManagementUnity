@@ -7,6 +7,30 @@ namespace LevelManagement
 {
     public class MainMenu : Menu
     {
+        private static MainMenu _instance;
+
+        public static MainMenu Instance { get { return _instance; } }
+
+        private void Awake()
+        {
+            if (_instance != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                _instance = this;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (_instance == this)
+            {
+                _instance = null;
+            }
+        }
+
         public void OnPlayPressed()
         {
             if (GameManager.Instance != null)
@@ -17,20 +41,18 @@ namespace LevelManagement
 
         public void OnSettingsPressed()
         {
-            Menu settingsMenu = transform.parent.Find("SettingsMenu(Clone)").GetComponent<Menu>();
-            if (MenuManager.Instance != null && settingsMenu != null)
+
+            if (MenuManager.Instance != null && SettingsMenu.Instance != null)
             {
-                MenuManager.Instance.OpenMenu(settingsMenu);
+                MenuManager.Instance.OpenMenu(SettingsMenu.Instance);
             }
         }
 
         public void OnCreditsPressed()
         {
-
-            Menu creditsScreen = transform.parent.Find("CreditsScreen(Clone)").GetComponent<Menu>();
-            if (MenuManager.Instance != null && creditsScreen != null)
+            if (MenuManager.Instance != null && CreditsScreen.Instance != null)
             {
-                MenuManager.Instance.OpenMenu(creditsScreen);
+                MenuManager.Instance.OpenMenu(CreditsScreen.Instance);
             }
         }
 
