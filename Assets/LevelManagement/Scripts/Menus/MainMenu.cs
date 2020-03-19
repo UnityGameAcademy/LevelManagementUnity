@@ -14,27 +14,18 @@ namespace LevelManagement
                 GameManager.Instance.LoadNextLevel();
             }
 
-            if (MenuManager.Instance != null && GameMenu.Instance != null)
-            {
-                MenuManager.Instance.OpenMenu(GameMenu.Instance);
-            }
+            GameMenu.Open();
         }
 
         public void OnSettingsPressed()
         {
 
-            if (MenuManager.Instance != null && SettingsMenu.Instance != null)
-            {
-                MenuManager.Instance.OpenMenu(SettingsMenu.Instance);
-            }
+            SettingsMenu.Open();
         }
 
         public void OnCreditsPressed()
         {
-            if (MenuManager.Instance != null && CreditsScreen.Instance != null)
-            {
-                MenuManager.Instance.OpenMenu(CreditsScreen.Instance);
-            }
+            CreditsScreen.Open();
         }
 
         public override void OnBackPressed()

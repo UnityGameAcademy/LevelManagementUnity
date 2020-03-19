@@ -28,10 +28,7 @@ namespace LevelManagement
             Time.timeScale = 1;
             SceneManager.LoadScene(mainMenuIndex);
 
-            if (MenuManager.Instance != null && MainMenu.Instance != null)
-            {
-                MenuManager.Instance.OpenMenu(MainMenu.Instance);
-            }
+            MainMenu.Open();
         }
 
         public void OnQuitPressed()
