@@ -13,6 +13,11 @@ namespace LevelManagement
             {
                 GameManager.Instance.LoadNextLevel();
             }
+
+            if (MenuManager.Instance != null && GameMenu.Instance != null)
+            {
+                MenuManager.Instance.OpenMenu(GameMenu.Instance);
+            }
         }
 
         public void OnSettingsPressed()

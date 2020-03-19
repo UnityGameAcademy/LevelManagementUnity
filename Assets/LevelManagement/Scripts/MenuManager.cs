@@ -9,6 +9,8 @@ namespace LevelManagement
         public MainMenu mainMenuPrefab;
         public SettingsMenu settingsMenuPrefab;
         public CreditsScreen creditsScreenPrefab;
+        public GameMenu gameMenuPrefab;
+        public PauseMenu pauseMenuPrefab;
 
         [SerializeField]
         private Transform _menuParent;
@@ -29,6 +31,7 @@ namespace LevelManagement
             {
                 _instance = this;
                 InitializeMenus();
+                DontDestroyOnLoad(gameObject);
             }
         }
 
@@ -48,7 +51,10 @@ namespace LevelManagement
                 _menuParent = menuParentObject.transform;
             }
 
-            Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab };
+            DontDestroyOnLoad(_menuParent.gameObject);
+
+            Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab,
+                gameMenuPrefab, pauseMenuPrefab};
 
             foreach (Menu prefab in menuPrefabs)
             {

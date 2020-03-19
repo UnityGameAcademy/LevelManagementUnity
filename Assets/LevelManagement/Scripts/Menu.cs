@@ -27,6 +27,8 @@ namespace LevelManagement
             _instance = null;
         }
 
+
+
     }
 
     [RequireComponent(typeof(Canvas))]
