@@ -30,9 +30,15 @@ namespace LevelManagement
 
         private IEnumerator FadeAndLoadRoutine()
         {
-            LevelLoader.LoadMainMenuLevel();
+            
             yield return new WaitForSeconds(delay);
             _screenFader.FadeOff();
+            LevelLoader.LoadMainMenuLevel();
+
+            yield return new WaitForSeconds(_screenFader.FadeDuration);
+
+            Object.Destroy(gameObject);
+
         }
     }
 }

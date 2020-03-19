@@ -13,6 +13,7 @@ public class ScreenFader : MonoBehaviour
 
     [SerializeField]
     private float _fadeDuration = 2f;
+    public float FadeDuration { get { return _fadeDuration; } }
 
     [SerializeField]
     private MaskableGraphic[] graphicsToFade;

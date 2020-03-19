@@ -48,6 +48,7 @@ namespace LevelManagement
         {
             int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1)
                 % SceneManager.sceneCountInBuildSettings;
+            nextSceneIndex = Mathf.Clamp(nextSceneIndex, mainMenuIndex, nextSceneIndex);
             LoadLevel(nextSceneIndex);
 
         }
