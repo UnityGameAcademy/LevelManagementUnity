@@ -9,11 +9,7 @@ namespace LevelManagement
     {
         public void OnPlayPressed()
         {
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.LoadNextLevel();
-            }
-
+            LevelLoader.LoadNextLevel();
             GameMenu.Open();
         }
 
