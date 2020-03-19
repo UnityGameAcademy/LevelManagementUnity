@@ -382,6 +382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SplashScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 1688506737104324, guid: 19060b0e46e94de42893ece4d2217283, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224464538468552362, guid: 19060b0e46e94de42893ece4d2217283,
         type: 3}
       propertyPath: m_LocalPosition.x
