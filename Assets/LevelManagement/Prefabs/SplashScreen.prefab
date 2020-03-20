@@ -76,7 +76,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: LOADING
+  m_Text: PRESS TO START
 --- !u!1 &1435461242249562
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +342,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _solidAlpha: 1
   _clearAlpha: 0
-  _fadeDuration: 1
+  _fadeOnDuration: 2
+  _fadeOffDuration: 2
   graphicsToFade:
   - {fileID: 114742221220784828}
   - {fileID: 114143696639940468}
