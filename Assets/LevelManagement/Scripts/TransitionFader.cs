@@ -35,5 +35,13 @@ public class TransitionFader : ScreenFader
         StartCoroutine(PlayRoutine());
     }
 
+    public static void PlayTransition(TransitionFader transitionPrefab)
+    {
+        if (transitionPrefab != null)
+        {
+            TransitionFader instance = Instantiate(transitionPrefab, Vector3.zero, Quaternion.identity);
+            instance.Play();
+        }
+    }
 }
 

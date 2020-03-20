@@ -211,7 +211,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_TargetDisplay: 0
 --- !u!114 &114044670640696430
 MonoBehaviour:
@@ -266,13 +266,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _solidAlpha: 1
   _clearAlpha: 0
-  _fadeOnDuration: 0.3
+  _fadeOnDuration: 0.5
   _fadeOffDuration: 0.3
   graphicsToFade:
   - {fileID: 114978467361728342}
   - {fileID: 114349711124737720}
-  _lifetime: 1
-  _delay: 0.3
+  _lifetime: 1.5
+  _delay: 0
 --- !u!114 &114491245359426184
 MonoBehaviour:
   m_ObjectHideFlags: 0
