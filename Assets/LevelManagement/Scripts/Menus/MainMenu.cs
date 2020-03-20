@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SampleGame;
+using UnityEngine.UI;
+using LevelManagement.Data;
 
 namespace LevelManagement
 {
@@ -13,7 +15,48 @@ namespace LevelManagement
         [SerializeField]
         private TransitionFader startTransitionPrefab;
 
-        public void OnPlayPressed()
+        private DataManager _dataManager;
+
+        [SerializeField]
+        private InputField _inputField;
+
+		protected override void Awake()
+		{
+            base.Awake();
+            _dataManager = Object.FindObjectOfType<DataManager>();
+		}
+
+		private void Start()
+		{
+            LoadData();
+		}
+
+        private void LoadData()
+        {
+            if (_dataManager != null && _inputField != null)
+            {
+                _dataManager.Load();
+                _inputField.text = _dataManager.PlayerName;
+            }
+        }
+
+        public void OnPlayerNameValueChanged(string name)
+        {
+            if (_dataManager != null)
+            {
+                _dataManager.PlayerName = name;
+            }
+        }
+
+        public void OnPlayerNameEndEdit()
+        {
+            if (_dataManager != null)
+            {
+                _dataManager.Save();
+            }
+        }
+
+		public void OnPlayPressed()
         {
             StartCoroutine(OnPlayPressedRoutine());
         }
