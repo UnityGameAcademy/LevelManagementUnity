@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using LevelManagement.Data;
 
+
 namespace LevelManagement
 {
     public class SettingsMenu : Menu<SettingsMenu>
@@ -19,24 +20,23 @@ namespace LevelManagement
 
         private DataManager _dataManager;
 
-		protected override void Awake()
-		{
+        protected override void Awake()
+        {
             base.Awake();
             _dataManager = Object.FindObjectOfType<DataManager>();
-		}
+        }
 
-		private void Start()
-		{
+        private void Start()
+        {
             LoadData();
-		}
+        }
 
-		public void OnMasterVolumeChanged(float volume)
+        public void OnMasterVolumeChanged(float volume)
         {
             if (_dataManager != null)
             {
                 _dataManager.MasterVolume = volume;
             }
-            //PlayerPrefs.SetFloat("MasterVolume", volume);
         }
 
         public void OnSFXVolumeChanged(float volume)
@@ -45,7 +45,6 @@ namespace LevelManagement
             {
                 _dataManager.SfxVolume = volume;
             }
-            //PlayerPrefs.SetFloat("SFXVolume", volume);
         }
 
         public void OnMusicVolumeChanged(float volume)
@@ -54,13 +53,16 @@ namespace LevelManagement
             {
                 _dataManager.MusicVolume = volume;
             }
-            //PlayerPrefs.SetFloat("MusicVolume", volume);
         }
 
         public override void OnBackPressed()
         {
             base.OnBackPressed();
-            //PlayerPrefs.Save();
+            if (_dataManager != null)
+            {
+                _dataManager.Save();
+            }
+
         }
 
         public void LoadData()
@@ -70,14 +72,11 @@ namespace LevelManagement
             {
                 return;
             }
+            _dataManager.Load();
 
             _masterVolumeSlider.value = _dataManager.MasterVolume;
             _sfxVolumeSlider.value = _dataManager.SfxVolume;
             _musicVolumeSlider.value = _dataManager.MusicVolume;
-
-            //_masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
-            //_sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume");
-            //_musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
         }
     }
 }

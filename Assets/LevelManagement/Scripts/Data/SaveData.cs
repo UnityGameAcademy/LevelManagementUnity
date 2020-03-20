@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 
 namespace LevelManagement.Data
 {
+    [Serializable]
     public class SaveData
     {
         public string playerName;
