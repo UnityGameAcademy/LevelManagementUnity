@@ -1075,7 +1075,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playDelay: 1
-  startTransitionPrefab: {fileID: 0}
+  startTransitionPrefab: {fileID: 114970023746679392, guid: b8ce63f8d606ac24db689874a927a5cf,
+    type: 3}
   _inputField: {fileID: 114243254460823676}
 --- !u!1 &1707047061594548
 GameObject:
