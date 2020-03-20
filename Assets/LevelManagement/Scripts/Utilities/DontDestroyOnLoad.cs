@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DontDestroyOnLoad : MonoBehaviour
 {
-
+    // makes an object persistent in between scene loads 
     private void Awake()
     {
         transform.SetParent(null);

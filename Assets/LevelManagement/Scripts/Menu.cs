@@ -5,11 +5,14 @@ using SampleGame;
 
 namespace LevelManagement
 {
+    // generic class for Menus, implementing Singleton pattern
     public abstract class Menu<T> : Menu where T : Menu<T>
     {
+        // reference to public and private instances
         private static T _instance;
         public static T Instance { get { return _instance; } }
 
+        // self-destruct if another instance already exists
         protected virtual void Awake()
         {
             if (_instance != null)
@@ -22,11 +25,13 @@ namespace LevelManagement
             }
         }
 
+        // unset the instance if this object is destroyed
         protected virtual void OnDestroy()
         {
             _instance = null;
         }
 
+        // simplifies syntax to open a menu
         public static void Open()
         {
             if (MenuManager.Instance != null && Instance != null)
@@ -37,6 +42,7 @@ namespace LevelManagement
 
     }
 
+    // base class for Menus
     [RequireComponent(typeof(Canvas))]
     public abstract class Menu : MonoBehaviour
     {
